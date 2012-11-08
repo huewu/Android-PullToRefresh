@@ -117,7 +117,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 	}
 
 	@Override
-	void onRefreshing(final boolean doScroll) {
+	protected void onRefreshing(final boolean doScroll) {
 
 		// If we're not showing the Refreshing view, or the list is empty, then
 		// the header/footer views won't show so we use the
@@ -171,7 +171,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 	}
 
 	@Override
-	void onReset() {
+	protected void onReset() {
 
 		// If we're not showing the Refreshing view, or the list is empty, then
 		// the header/footer views won't show so we use the

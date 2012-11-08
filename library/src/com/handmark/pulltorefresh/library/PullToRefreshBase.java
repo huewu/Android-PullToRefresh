@@ -76,7 +76,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	private Mode mMode = DEFAULT_MODE;
 
 	private Mode mCurrentMode;
-	T mRefreshableView;
+	protected T mRefreshableView;
 	private FrameLayout mRefreshableViewWrapper;
 
 	private boolean mShowViewWhileRefreshing = true;
@@ -491,7 +491,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	 * Called when the UI has been to be updated to be in the
 	 * {@link State#PULL_TO_REFRESH} state.
 	 */
-	void onPullToRefresh() {
+	protected void onPullToRefresh() {
 		switch (mCurrentMode) {
 			case PULL_UP_TO_REFRESH:
 				mFooterLayout.pullToRefresh();
@@ -509,7 +509,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	 * @param doScroll
 	 *            - Whether the UI should scroll for this event.
 	 */
-	void onRefreshing(final boolean doScroll) {
+	protected void onRefreshing(final boolean doScroll) {
 		if (mMode.canPullDown()) {
 			mHeaderLayout.refreshing();
 		}
@@ -533,7 +533,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	 * Called when the UI has been to be updated to be in the
 	 * {@link State#RELEASE_TO_REFRESH} state.
 	 */
-	void onReleaseToRefresh() {
+	protected void onReleaseToRefresh() {
 		switch (mCurrentMode) {
 			case PULL_UP_TO_REFRESH:
 				mFooterLayout.releaseToRefresh();
@@ -548,7 +548,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	 * Called when the UI has been to be updated to be in the
 	 * {@link State#RESET} state.
 	 */
-	void onReset() {
+	protected void onReset() {
 		mIsBeingDragged = false;
 
 		if (mMode.canPullDown()) {
@@ -1124,18 +1124,18 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		/**
 		 * @return true if this mode permits Pulling Down from the top
 		 */
-		boolean canPullDown() {
+		public boolean canPullDown() {
 			return this == PULL_DOWN_TO_REFRESH || this == BOTH;
 		}
 
 		/**
 		 * @return true if this mode permits Pulling Up from the bottom
 		 */
-		boolean canPullUp() {
+		public boolean canPullUp() {
 			return this == PULL_UP_TO_REFRESH || this == BOTH;
 		}
 
-		int getIntValue() {
+		public int getIntValue() {
 			return mIntValue;
 		}
 

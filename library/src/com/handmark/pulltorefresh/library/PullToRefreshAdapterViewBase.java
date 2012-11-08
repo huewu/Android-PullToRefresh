@@ -227,7 +227,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
 	};
 
 	@Override
-	void onPullToRefresh() {
+	protected void onPullToRefresh() {
 		super.onPullToRefresh();
 
 		if (getShowIndicatorInternal()) {
@@ -242,7 +242,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
 		}
 	}
 
-	void onRefreshing(boolean doScroll) {
+	protected void onRefreshing(boolean doScroll) {
 		super.onRefreshing(doScroll);
 
 		if (getShowIndicatorInternal()) {
@@ -251,7 +251,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
 	}
 
 	@Override
-	void onReleaseToRefresh() {
+	protected void onReleaseToRefresh() {
 		super.onReleaseToRefresh();
 
 		if (getShowIndicatorInternal()) {
@@ -267,7 +267,7 @@ public abstract class PullToRefreshAdapterViewBase<T extends AbsListView> extend
 	}
 
 	@Override
-	void onReset() {
+	protected void onReset() {
 		super.onReset();
 
 		if (getShowIndicatorInternal()) {
